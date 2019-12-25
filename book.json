@@ -1,0 +1,17 @@
+{
+    "plugins": [
+		 "github-buttons",
+		 "chapter-fold",
+		 "advanced-emoji"
+    ],
+	"pluginsConfig": {
+    "github-buttons": {
+      "buttons": [{
+        "user": "Perseus1993",
+        "type": "follow",
+        "width": "230",
+        "count": false
+      }]
+    }
+  }
+}
