@@ -15,7 +15,7 @@
 双层循环，妥妥n^2复杂度
 
 #算法实现1
-```
+```java
 import java.util.Arrays;
 
 public class InsertSort {
@@ -53,7 +53,7 @@ public class InsertSort {
 
 ```
 #算法实现2
-```
+```java
 public class InsertSort2 {
 
 	public static void main(String[] args) {

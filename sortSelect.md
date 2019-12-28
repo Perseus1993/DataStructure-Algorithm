@@ -3,7 +3,7 @@
 #概述
 <img src = 'img/sort/select.gif'/>
 可以看作是冒泡排序的改进版，省去了不断的元素交换，每次找出最大的元素
-```
+```java
 import java.util.Arrays;
 
 public class selectSort {

@@ -22,7 +22,7 @@
 
 ##2.普通版冒泡排序
 
-```
+```java
 //案例数组
 int[] arr = {3, 9, -1, 10, -2};
 
@@ -50,7 +50,7 @@ public class Bubble {
 ##3.改进版冒泡排序
 在这里加入一个判断：当某一趟把最大的数向右边赶的时候，如果发现整个过程并没有发生元素交换，说明数组已经有序，提前退出循环<br>
 时间复杂度不变
-```
+```java
 public class Bubble {
 
 	public static void bubbleSort(int[] arr) {
