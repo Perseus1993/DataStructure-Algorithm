@@ -1,4 +1,5 @@
 #基数排序
+<img src = 'img/sort/sortMerge.gif'/>
 
 #注意事项
 

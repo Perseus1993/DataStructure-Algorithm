@@ -10,6 +10,8 @@
   - [归并排序](sortMerge.md)
   - [基数排序](sortRedix.md)
   - [《算法第四版》排序](xxx.md)
+* [哈希表](hashMap.md)
+  - [hashmap](hashMap1.md)
 * [递归](recurMain.md)
   - [迷宫问题](d.md)
   - [面试题](xxx.md)
