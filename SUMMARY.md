@@ -12,6 +12,8 @@
   - [《算法第四版》排序](xxx.md)
 * [哈希表](hashMap.md)
   - [hashmap](hashMap1.md)
+* [树](tree.md)
+  - [二叉树](tree1.md)
 * [递归](recurMain.md)
   - [迷宫问题](d.md)
   - [面试题](xxx.md)
