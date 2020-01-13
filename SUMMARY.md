@@ -14,6 +14,7 @@
   - [hashmap](hashMap1.md)
 * [树](tree.md)
   - [二叉树](tree1.md)
+  - [顺序二叉树](tree2.md)
 * [递归](recurMain.md)
   - [迷宫问题](d.md)
   - [面试题](xxx.md)
