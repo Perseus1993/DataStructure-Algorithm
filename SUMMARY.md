@@ -12,6 +12,7 @@
   - [《算法第四版》排序](xxx.md)
 * [哈希表](hashMap.md)
   - [hashmap](hashMap1.md)
+  - [leetcode 706](lc/lc706.md)
 * [树](tree.md)
   - [二叉树](tree1.md)
   - [顺序二叉树](tree2.md)
