@@ -66,7 +66,7 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="xxx.md" />
+    <link rel="next" href="sortShell.html" />
     
     
     <link rel="prev" href="sortSelect.html" />
@@ -175,9 +175,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="xxx.md">
+        <li class="chapter " data-level="1.2.4" data-path="sortShell.html">
             
-                <span>
+                <a href="sortShell.html">
             
                     
                     希尔排序
@@ -188,9 +188,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5" data-path="xxx.md">
+        <li class="chapter " data-level="1.2.5" data-path="sortQuick.html">
             
-                <span>
+                <a href="sortQuick.html">
             
                     
                     快速排序
@@ -201,9 +201,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.6" data-path="xxx.md">
+        <li class="chapter " data-level="1.2.6" data-path="sortMerge.html">
             
-                <span>
+                <a href="sortMerge.html">
             
                     
                     归并排序
@@ -214,9 +214,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.7" data-path="xxx.md">
+        <li class="chapter " data-level="1.2.7" data-path="sortRedix.html">
             
-                <span>
+                <a href="sortRedix.html">
             
                     
                     基数排序
@@ -245,7 +245,97 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="recurMain.html">
+        <li class="chapter " data-level="1.3" data-path="hashMap.md">
+            
+                <span>
+            
+                    
+                    哈希表
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="hashMap1.html">
+            
+                <a href="hashMap1.html">
+            
+                    
+                    hashmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="lc/lc706.html">
+            
+                <a href="lc/lc706.html">
+            
+                    
+                    leetcode 706
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="tree.md">
+            
+                <span>
+            
+                    
+                    树
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="tree1.html">
+            
+                <a href="tree1.html">
+            
+                    
+                    二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="tree2.html">
+            
+                <a href="tree2.html">
+            
+                    
+                    顺序二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="recurMain.html">
             
                 <a href="recurMain.html">
             
@@ -259,7 +349,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="d.md">
+        <li class="chapter " data-level="1.5.1" data-path="d.md">
             
                 <span>
             
@@ -272,7 +362,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="xxx.md">
+        <li class="chapter " data-level="1.5.2" data-path="xxx.md">
             
                 <span>
             
@@ -285,7 +375,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="xxx.md">
+        <li class="chapter " data-level="1.5.3" data-path="xxx.md">
             
                 <span>
             
@@ -362,32 +452,32 @@
 &#x5916;&#x5C42;&#x7D22;&#x5F15;1&#x589E;&#x5927;&#x5230;arr.length - 1, &#x5185;&#x5C42;&#x662F;&#xFF08;&#x5916;&#x5C42;&#x7D22;&#x5F15; - 1&#xFF09;&#x51CF;&#x5C0F;&#x5230;&#x7D22;&#x5F15;0&#xFF0C;&#x5185;&#x5C42;&#x6709;&#x4E24;&#x4E2A;&#x7EC8;&#x6B62;&#x6761;&#x4EF6;&#xFF1A;&#x54E8;&#x5175;&#x5143;&#x7D20;&#x6BD4;&#x7D22;&#x5F15;0&#x8FD8;&#x5C0F;  or &#x5F53;&#x524D;&#x5143;&#x7D20; &lt;= &#x54E8;&#x5175;&#x5143;&#x7D20;
 &#x53CC;&#x5C42;&#x5FAA;&#x73AF;&#xFF0C;&#x59A5;&#x59A5;n^2&#x590D;&#x6742;&#x5EA6;</p>
 <h1 id="&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;1">&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;1</h1>
-<pre><code>import java.util.Arrays;
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> java.util.Arrays;
 
-public class InsertSort {
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">InsertSort</span> </span>{
 
-    public static void main(String[] args) {
-    //&#x793A;&#x4F8B;&#x6570;&#x7EC4;
-        int[] arr = { 100, 30, 46, 3 };
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+    <span class="hljs-comment">//&#x793A;&#x4F8B;&#x6570;&#x7EC4;</span>
+        <span class="hljs-keyword">int</span>[] arr = { <span class="hljs-number">100</span>, <span class="hljs-number">30</span>, <span class="hljs-number">46</span>, <span class="hljs-number">3</span> };
         method(arr);
         System.out.println(Arrays.toString(arr));
 
     }
 
-    public static void method(int[] arr) {
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr)</span> </span>{
 
-        int tmp;
-        for(int i = 1; i &lt; arr.length; i++) {
+        <span class="hljs-keyword">int</span> tmp;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; arr.length; i++) {
             tmp = arr[i];
-            for(int j = i - 1; j &gt;= 0; j-- ) {
-                //&#x5C0F;&#x5751;&#xFF1A;&#x8981;&#x7528;tmp&#x5224;&#x65AD;&#xFF01;
-                if(arr[j] &lt;= tmp) {
-                    arr[j + 1] = tmp;
-                    break;
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = i - <span class="hljs-number">1</span>; j &gt;= <span class="hljs-number">0</span>; j-- ) {
+                <span class="hljs-comment">//&#x5C0F;&#x5751;&#xFF1A;&#x8981;&#x7528;tmp&#x5224;&#x65AD;&#xFF01;</span>
+                <span class="hljs-keyword">if</span>(arr[j] &lt;= tmp) {
+                    arr[j + <span class="hljs-number">1</span>] = tmp;
+                    <span class="hljs-keyword">break</span>;
                 }
-                else {
-                    arr[j + 1] = arr[j];
-                    if(j == 0) {
+                <span class="hljs-keyword">else</span> {
+                    arr[j + <span class="hljs-number">1</span>] = arr[j];
+                    <span class="hljs-keyword">if</span>(j == <span class="hljs-number">0</span>) {
                         arr[j] = tmp;
                     }
                 }            
@@ -396,31 +486,33 @@ public class InsertSort {
     }
 
 }
-</code></pre><h1 id="&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;2">&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;2</h1>
-<pre><code>public class InsertSort2 {
+</code></pre>
+<h1 id="&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;2">&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;2</h1>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">InsertSort2</span> </span>{
 
-    public static void main(String[] args) {
-        int[] arr = {4, 5, 1, 10, 2};
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">int</span>[] arr = {<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">2</span>};
         method(arr);
 
     }
-    public static void method(int[] arr) {
-        for(int i = 1; i &lt; arr.length; i++) {
-            int tmp = arr[i];
-            int j = i - 1;
-            //&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x6709;&#x4E2A;&#x5C0F;&#x5751;while&#x8BED;&#x53E5;&#x91CC;&#x9762;&#x7684;&#x5224;&#x65AD;&#x987A;&#x5E8F;&#x4E0D;&#x80FD;&#x98A0;&#x5012;&#x54E6;
-            while( j &gt;= 0 &amp;&amp; tmp &lt; arr[j]) {
-                arr[j + 1] = arr[j];
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr)</span> </span>{
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; arr.length; i++) {
+            <span class="hljs-keyword">int</span> tmp = arr[i];
+            <span class="hljs-keyword">int</span> j = i - <span class="hljs-number">1</span>;
+            <span class="hljs-comment">//&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x6709;&#x4E2A;&#x5C0F;&#x5751;while&#x8BED;&#x53E5;&#x91CC;&#x9762;&#x7684;&#x5224;&#x65AD;&#x987A;&#x5E8F;&#x4E0D;&#x80FD;&#x98A0;&#x5012;&#x54E6;</span>
+            <span class="hljs-keyword">while</span>( j &gt;= <span class="hljs-number">0</span> &amp;&amp; tmp &lt; arr[j]) {
+                arr[j + <span class="hljs-number">1</span>] = arr[j];
                 j--;
 
             }
-            arr[j + 1] = tmp;
+            arr[j + <span class="hljs-number">1</span>] = tmp;
         }
         System.out.println(Arrays.toString(arr));
     }
 
 }
 </code></pre>
+
                                 
                                 </section>
                             
@@ -452,7 +544,7 @@ public class InsertSort {
                 </a>
                 
                 
-                <a href="xxx.md" class="navigation navigation-next " aria-label="Next page: 希尔排序">
+                <a href="sortShell.html" class="navigation navigation-next " aria-label="Next page: 希尔排序">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -463,7 +555,7 @@ public class InsertSort {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"插入排序","level":"1.2.3","depth":2,"next":{"title":"希尔排序","level":"1.2.4","depth":2,"path":"xxx.md","ref":"xxx.md","articles":[]},"previous":{"title":"选择排序","level":"1.2.2","depth":2,"path":"sortSelect.md","ref":"sortSelect.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["github-buttons","chapter-fold","advanced-emoji","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"Perseus1993","type":"follow","width":"230","count":false}]},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sortInsert.md","mtime":"2019-12-24T15:12:26.512Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-24T15:23:45.996Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"插入排序","level":"1.2.3","depth":2,"next":{"title":"希尔排序","level":"1.2.4","depth":2,"path":"sortShell.md","ref":"sortShell.md","articles":[]},"previous":{"title":"选择排序","level":"1.2.2","depth":2,"path":"sortSelect.md","ref":"sortSelect.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["github-buttons","chapter-fold","advanced-emoji","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"Perseus1993","type":"follow","width":"230","count":false}]},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sortInsert.md","mtime":"2019-12-27T13:30:37.986Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-16T07:33:44.293Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

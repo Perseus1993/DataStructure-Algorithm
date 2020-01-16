@@ -1,0 +1,581 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>快速排序 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="sortMerge.html" />
+    
+    
+    <link rel="prev" href="sortShell.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"Perseus1993","type":"follow","width":"230","count":false}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="sortMain.html">
+            
+                <a href="sortMain.html">
+            
+                    
+                    排序算法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="sortBubble.html">
+            
+                <a href="sortBubble.html">
+            
+                    
+                    冒泡排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="sortSelect.html">
+            
+                <a href="sortSelect.html">
+            
+                    
+                    选择排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="sortInsert.html">
+            
+                <a href="sortInsert.html">
+            
+                    
+                    插入排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="sortShell.html">
+            
+                <a href="sortShell.html">
+            
+                    
+                    希尔排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.5" data-path="sortQuick.html">
+            
+                <a href="sortQuick.html">
+            
+                    
+                    快速排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="sortMerge.html">
+            
+                <a href="sortMerge.html">
+            
+                    
+                    归并排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="sortRedix.html">
+            
+                <a href="sortRedix.html">
+            
+                    
+                    基数排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="xxx.md">
+            
+                <span>
+            
+                    
+                    《算法第四版》排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="hashMap.md">
+            
+                <span>
+            
+                    
+                    哈希表
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="hashMap1.html">
+            
+                <a href="hashMap1.html">
+            
+                    
+                    hashmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="lc/lc706.html">
+            
+                <a href="lc/lc706.html">
+            
+                    
+                    leetcode 706
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="tree.md">
+            
+                <span>
+            
+                    
+                    树
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="tree1.html">
+            
+                <a href="tree1.html">
+            
+                    
+                    二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="tree2.html">
+            
+                <a href="tree2.html">
+            
+                    
+                    顺序二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="recurMain.html">
+            
+                <a href="recurMain.html">
+            
+                    
+                    递归
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="d.md">
+            
+                <span>
+            
+                    
+                    迷宫问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="xxx.md">
+            
+                <span>
+            
+                    
+                    面试题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="xxx.md">
+            
+                <span>
+            
+                    
+                    《算法第四版》递归
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >快速排序</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5FEB;&#x901F;&#x6392;&#x5E8F;">&#x5FEB;&#x901F;&#x6392;&#x5E8F;</h1>
+<p>&#x5FEB;&#x6392;&#x5728;&#x9762;&#x8BD5;&#x4E2D;&#x7ECF;&#x5E38;&#x88AB;&#x8003;&#x5230;&#xFF0C;&#x4E3B;&#x8981;&#x96BE;&#x70B9;&#x5728;&#x4E8E;&#x8FB9;&#x754C;&#x6761;&#x4EF6;&#x7684;&#x786E;&#x5B9A;&#x4EE5;&#x53CA;&#x9012;&#x5F52;&#x7684;&#x4F7F;&#x7528;&#x3002;&#x5728;&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x7528;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x4F5C;&#x4E3A;pivot&#xFF08;&#x8F74;&#xFF09;&#x7684;&#x65B9;&#x6CD5;</p>
+<p>&#x5FEB;&#x6392;&#x7684;&#x6838;&#x5FC3;&#x601D;&#x60F3;&#x5C31;&#x662F;&#x9009;&#x53D6;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x4F5C;&#x4E3A;&#x8F74;&#xFF0C;&#x4F7F;&#x8F74;&#x5DE6;&#x8FB9;&#x7684;&#x5143;&#x7D20;&#x5C0F;&#x4E8E;&#x8F74;&#xFF0C;&#x53F3;&#x8FB9;&#x7684;&#x5143;&#x7D20;&#x5927;&#x4E8E;&#x8F74;&#xFF0C;&#x518D;&#x628A;&#x5FEB;&#x6392;&#x9012;&#x5F52;&#x8C03;&#x7528;&#x518D;&#x8F74;&#x7684;&#x4E24;&#x4FA7;</p>
+<p>&#x5FAA;&#x5E8F;&#x6E10;&#x8FDB;&#xFF0C;
+&#x7B2C;&#x4E00;&#x6B65;&#x8003;&#x8651;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x5F52;&#x4F4D;&#x8F74;&#x5DE6;&#x53F3;&#x7684;&#x5143;&#x7D20;&#xFF1A;
+&#x7B2C;&#x4E8C;&#x90E8;&#x8003;&#x8651;&#x8FB9;&#x754C;&#x6761;&#x4EF6;
+&#x7B2C;&#x4E09;&#x6B65;&#x8003;&#x8651;&#x9012;&#x5F52;&#x7684;&#x4F7F;&#x7528;</p>
+<p>&#x7B2C;&#x4E00;&#x6B65;&#x7684;&#x601D;&#x8DEF;&#x5C31;&#x662F;&#x628A;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x4F5C;&#x4E3A;&#x8F74;pivot&#xFF0C;&#x4ECE;&#x4E0B;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x5230;&#x672B;&#x5C3E;&#x7684;&#x8303;&#x56F4;&#x4E2D;&#xFF08;&#x8BBE;&#x4E3A;i&#xFF0C;j&#xFF09;&#xFF0C;i&#x9010;&#x6E10;&#x589E;&#x957F;&#x76F4;&#x5230;&#x9047;&#x5230;&#x6BD4;pivot&#x5927;&#x7684;&#x6570;&#x5B57;&#xFF0C;j&#x9010;&#x6E10;&#x51CF;&#x5C0F;&#x76F4;&#x5230;&#x9047;&#x5230;&#x6BD4;pivot&#x5C0F;&#x7684;&#x6570;&#x5B57;&#xFF0C;&#x4EA4;&#x6362;i&#xFF0C;j&#x7D22;&#x5F15;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x518D;&#x8FDB;&#x4E00;&#x6B65;&#x589E;&#x957F;&#xFF0C;&#x76F4;&#x5230;i j&#x78B0;&#x5934;</p>
+<p>&#x7B2C;&#x4E8C;&#x90E8;&#x601D;&#x8003;&#x8FB9;&#x754C;&#x6761;&#x4EF6;</p>
+<p>i,j&#x4E0D;&#x65AD;&#x4EA4;&#x6362;&#x5230;&#x6700;&#x540E;&#xFF0C;pivot&#x662F;&#x548C;j&#x505A;&#x4EA4;&#x6362;&#xFF0C;&#x6240;&#x4EE5;&#x8981;&#x4FDD;&#x4F4F;j&#x4E0D;&#x8981;&#x8D8A;&#x754C;&#xFF0C;j&#x662F;&#x4ECE;&#x672B;&#x5C3E;&#x5411;&#x524D;&#x51B2;&#xFF0C;&#x6700;&#x6781;&#x7AEF;&#x7684;&#x60C5;&#x51B5;&#x662F;&#x6240;&#x6709;&#x7684;&#x5143;&#x7D20;&#x90FD;&#x5927;&#x4E8E;j&#xFF0C;&#x56E0;&#x6B64;j&#x53EF;&#x4EE5;&#x51B2;&#x5230;&#x7D22;&#x5F15;&#x662F;0&#x7684;&#x4F4D;&#x7F6E;&#xFF08;&#x6B64;&#x65F6;&#x662F;pivot&#x8C03;&#x6362;&#x81EA;&#x8EAB;&#xFF09;</p>
+<p>i&#x662F;&#x5426;&#x8D8A;&#x754C;&#x4E0D;&#x7528;&#x7EA0;&#x7ED3;&#xFF08;&#x6240;&#x6709;&#x5143;&#x7D20;&#x90FD;&#x5C0F;&#x4E8E;&#x7B49;&#x4E8E;pivot&#xFF0C;i&#x4F1A;&#x51B2;&#x5230;&#x7D22;&#x5F15;arr.length&#xFF09;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">QuickSort</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">int</span>[] arr = {<span class="hljs-number">9</span>, <span class="hljs-number">8</span>, <span class="hljs-number">6</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5</span>,<span class="hljs-number">2</span>,<span class="hljs-number">9</span>};
+        method(arr,<span class="hljs-number">0</span>,arr.length - <span class="hljs-number">1</span>);
+        System.out.println(Arrays.toString(arr));
+
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span>  <span class="hljs-title">method</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr, <span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> end)</span> </span>{
+        <span class="hljs-keyword">if</span>(start &lt; end) {
+            <span class="hljs-keyword">int</span> pivot = arr[start];
+            <span class="hljs-keyword">int</span> i = start + <span class="hljs-number">1</span>;
+            <span class="hljs-keyword">int</span> j = end;
+            <span class="hljs-keyword">while</span>(i &lt; j) {
+                <span class="hljs-keyword">while</span>(i &lt;= j &amp;&amp; arr[i] &lt;= pivot) {
+                    i++;
+                }
+                <span class="hljs-keyword">while</span>(i &lt;= j &amp;&amp; arr[j] &gt; pivot) {
+                    j--;
+                }
+                <span class="hljs-keyword">if</span>(i &lt;= j) {
+                    swap(arr, i, j);
+                }
+            }
+            swap(arr, start, j);
+            method(arr,j + <span class="hljs-number">1</span>, end);
+            method(arr,start, j - <span class="hljs-number">1</span>);
+        }
+
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr, <span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> j)</span> </span>{
+        <span class="hljs-keyword">int</span> tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+    }
+
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="sortShell.html" class="navigation navigation-prev " aria-label="Previous page: 希尔排序">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="sortMerge.html" class="navigation navigation-next " aria-label="Next page: 归并排序">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"快速排序","level":"1.2.5","depth":2,"next":{"title":"归并排序","level":"1.2.6","depth":2,"path":"sortMerge.md","ref":"sortMerge.md","articles":[]},"previous":{"title":"希尔排序","level":"1.2.4","depth":2,"path":"sortShell.md","ref":"sortShell.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["github-buttons","chapter-fold","advanced-emoji","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"Perseus1993","type":"follow","width":"230","count":false}]},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sortQuick.md","mtime":"2019-12-29T23:53:36.137Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-16T07:33:44.293Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
