@@ -9,6 +9,7 @@
   - [快速排序](sortQuick.md)
   - [归并排序](sortMerge.md)
   - [基数排序](sortRedix.md)
+  - [堆排序](sortHeap.md)
   - [《算法第四版》排序](xxx.md)
 * [哈希表](hashMap.md)
   - [hashmap](hashMap1.md)
