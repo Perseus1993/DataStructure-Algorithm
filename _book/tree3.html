@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>二叉树 · GitBook</title>
+        <title>线索化二叉树 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -66,10 +66,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="tree2.html" />
+    <link rel="next" href="recurMain.html" />
     
     
-    <link rel="prev" href="tree.md" />
+    <link rel="prev" href="tree2.html" />
     
 
     <style>
@@ -317,7 +317,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.4.1" data-path="tree1.html">
+        <li class="chapter " data-level="1.4.1" data-path="tree1.html">
             
                 <a href="tree1.html">
             
@@ -343,7 +343,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="tree3.html">
+        <li class="chapter active" data-level="1.4.3" data-path="tree3.html">
             
                 <a href="tree3.html">
             
@@ -449,7 +449,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >二叉树</a>
+        <a href="." >线索化二叉树</a>
     </h1>
 </div>
 
@@ -464,96 +464,223 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x7B80;&#x5355;&#x4E8C;&#x53C9;&#x6811;">&#x7B80;&#x5355;&#x4E8C;&#x53C9;&#x6811;</h1>
-<p>&#x5177;&#x6709;&#x8C26;&#x865A;&#xFF0C;&#x4E2D;&#x5E8F;&#xFF0C;&#x540E;&#x7EED;&#x904D;&#x5386;&#x67E5;&#x627E;&#x529F;&#x80FD;</p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BinaryTreeDemo</span> </span>{
-
+                                <h1 id="&#x7EBF;&#x7D22;&#x5316;&#x4E8C;&#x53C9;&#x6811;">&#x7EBF;&#x7D22;&#x5316;&#x4E8C;&#x53C9;&#x6811;</h1>
+<p>&#x63CF;&#x8FF0;&#x5F85;&#x6DFB;&#x52A0;</p>
+<h4 id="&#x4EE3;&#x7801;">&#x4EE3;&#x7801;</h4>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadedBinaryTreeDemo</span> </span>{
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-        binaryTree tree = <span class="hljs-keyword">new</span> binaryTree();
-        HeroNode root = <span class="hljs-keyword">new</span> HeroNode(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;&#x677E;&#x6C5F;&quot;</span>);
-        HeroNode node2 = <span class="hljs-keyword">new</span> HeroNode(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;&#x6B66;&#x677E;&quot;</span>);
-        HeroNode node3 = <span class="hljs-keyword">new</span> HeroNode(<span class="hljs-number">3</span>, <span class="hljs-string">&quot;&#x4E43;&#x529F;&quot;</span>);
-        HeroNode node4 = <span class="hljs-keyword">new</span> HeroNode(<span class="hljs-number">4</span>, <span class="hljs-string">&quot;&#x5DDD;&#x5730;&quot;</span>);
-        HeroNode node5 = <span class="hljs-keyword">new</span> HeroNode(<span class="hljs-number">5</span>, <span class="hljs-string">&quot;&#x5DE8;&#x65E0;&#x9738;&quot;</span>);
+        Node2 root = <span class="hljs-keyword">new</span> Node2(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;root&quot;</span>);
+        Node2 node2 = <span class="hljs-keyword">new</span> Node2(<span class="hljs-number">3</span>, <span class="hljs-string">&quot;node2&quot;</span>);
+        Node2 node3 = <span class="hljs-keyword">new</span> Node2(<span class="hljs-number">6</span>, <span class="hljs-string">&quot;node3&quot;</span>);
+        Node2 node4 = <span class="hljs-keyword">new</span> Node2(<span class="hljs-number">8</span>, <span class="hljs-string">&quot;node4&quot;</span>);
+        Node2 node5 = <span class="hljs-keyword">new</span> Node2(<span class="hljs-number">10</span>, <span class="hljs-string">&quot;node5&quot;</span>);
+        Node2 node6 = <span class="hljs-keyword">new</span> Node2(<span class="hljs-number">14</span>, <span class="hljs-string">&quot;node6&quot;</span>);
 
-        <span class="hljs-comment">//&#x5148;&#x624B;&#x52A8;&#x521B;&#x5EFA;</span>
+        <span class="hljs-comment">//&#x624B;&#x52A8;&#x521B;&#x5EFA;</span>
         root.setLeft(node2);
         root.setRight(node3);
-        node3.setRight(node4);
-        node3.setLeft(node5);
 
-        tree.setRoot(root);
-<span class="hljs-comment">//        tree.preOrder();</span>
-        System.out.println(tree.postOrderSearch(<span class="hljs-number">2</span>));
+        node2.setLeft(node4);
+        node2.setRight(node5);
 
+        node3.setLeft(node6);
+
+        BinaryTree2 bt = <span class="hljs-keyword">new</span> BinaryTree2();
+        bt.setRoot(root);
+        bt.threadNodes();
+
+        <span class="hljs-comment">//&#x6D4B;&#x8BD5;</span>
+        System.out.println(node5.getLeft());
+        System.out.println(node5.getRight());
 
     }
+
 
 }
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">binaryTree</span></span>{
-    <span class="hljs-keyword">private</span> HeroNode root;
+<span class="hljs-comment">//&#x7EBF;&#x7D22;&#x5316;&#x4E8C;&#x53C9;&#x6811;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BinaryTree2</span> </span>{
+    <span class="hljs-keyword">private</span> Node2 root;
+    <span class="hljs-comment">// &#x4E3A;&#x4E86;&#x7EBF;&#x7D22;&#x5316;&#x5EFA;&#x7ACB;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x524D;&#x9A71;&#x8282;&#x70B9;</span>
+    <span class="hljs-keyword">private</span> Node2 pre = <span class="hljs-keyword">null</span>;
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setRoot</span><span class="hljs-params">(HeroNode root)</span> </span>{
+    <span class="hljs-comment">//&#x904D;&#x5386;&#x4E2D;&#x5E8F;&#x7EBF;&#x7D22;&#x5316;&#x4E8C;&#x53C9;&#x6811;</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">threadList</span><span class="hljs-params">()</span> </span>{
+        Node2 node = root;
+        <span class="hljs-keyword">while</span>(node != <span class="hljs-keyword">null</span>) {
+            <span class="hljs-comment">//&#x627E;lefttype == 1&#x7684;&#x8282;&#x70B9;</span>
+            <span class="hljs-keyword">while</span>(node.getLeftType() == <span class="hljs-number">0</span>) {
+                node = node.getLeft();
+            }
+            System.out.println(node);
+            <span class="hljs-keyword">while</span>(node.getRightType() == <span class="hljs-number">1</span>) {
+                node = node.getRight();
+                System.out.println(node);
+            }
+            node = node.getRight();
+        }
+    }
+
+    <span class="hljs-comment">//&#x91CD;&#x8F7D;&#x7EBF;&#x7D22;&#x5316;&#x4E8C;&#x53C9;&#x6811;&#x65B9;&#x6CD5;</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">threadNodes</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">this</span>.threadNodes(root);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">threadNodes</span><span class="hljs-params">(Node2 node)</span> </span>{
+
+        <span class="hljs-comment">// &#x5982;&#x679C;node&#x4E3A;&#x7A7A;</span>
+        <span class="hljs-keyword">if</span> (node == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">return</span>;
+        }
+        <span class="hljs-comment">// (1)&#x5148;&#x7EBF;&#x7D22;&#x5316;&#x5DE6;&#x5B50;&#x6811;</span>
+        threadNodes(node.getLeft());
+        <span class="hljs-comment">// (2)&#x7EBF;&#x7D22;&#x5316;&#x5F53;&#x524D;&#x8282;&#x70B9;</span>
+
+        <span class="hljs-comment">// &#x5904;&#x7406;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x524D;&#x9A71;&#x8282;&#x70B9;</span>
+        <span class="hljs-keyword">if</span> (node.getLeft() == <span class="hljs-keyword">null</span>) {
+            node.setLeft(pre);
+            node.setLeftType(<span class="hljs-number">1</span>);
+        }
+        <span class="hljs-comment">// &#x5904;&#x7406;&#x540E;&#x7EE7;&#x8282;&#x70B9;</span>
+        <span class="hljs-keyword">if</span> (pre != <span class="hljs-keyword">null</span> &amp;&amp; pre.getRight() == <span class="hljs-keyword">null</span>) {
+            pre.setRight(node);
+            pre.setRightType(<span class="hljs-number">1</span>);
+        }
+        <span class="hljs-comment">// &#x8BA9;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x53D8;&#x6210;&#x4E0B;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x524D;&#x9A71;&#x8282;&#x70B9;</span>
+        pre = node;
+        <span class="hljs-comment">// (3)&#x518D;&#x7EBF;&#x7D22;&#x5316;&#x53F3;&#x5B50;&#x6811;</span>
+        threadNodes(node.getRight());
+
+
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Node2 <span class="hljs-title">getPre</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> pre;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setPre</span><span class="hljs-params">(Node2 pre)</span> </span>{
+        <span class="hljs-keyword">this</span>.pre = pre;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">delNode</span><span class="hljs-params">(<span class="hljs-keyword">int</span> no)</span> </span>{
+        <span class="hljs-keyword">if</span> (root != <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">if</span> (root.getId() == no) {
+                root = <span class="hljs-keyword">null</span>;
+            }
+        } <span class="hljs-keyword">else</span> {
+            System.out.println(<span class="hljs-string">&quot;&#x7A7A;&#xFF01;&quot;</span>);
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setRoot</span><span class="hljs-params">(Node2 root)</span> </span>{
         <span class="hljs-keyword">this</span>.root = root;
     }
+
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">preOrder</span><span class="hljs-params">()</span> </span>{
         <span class="hljs-keyword">if</span> (root != <span class="hljs-keyword">null</span>) {
             <span class="hljs-keyword">this</span>.root.preOrder();
-        }<span class="hljs-keyword">else</span> {
+        } <span class="hljs-keyword">else</span> {
             System.out.println(<span class="hljs-string">&quot;&#x6811;&#x7A7A;&quot;</span>);
         }
     }
+
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">mideOrder</span><span class="hljs-params">()</span> </span>{
         <span class="hljs-keyword">if</span> (root != <span class="hljs-keyword">null</span>) {
             <span class="hljs-keyword">this</span>.root.midOrder();
-        }<span class="hljs-keyword">else</span> {
+        } <span class="hljs-keyword">else</span> {
             System.out.println(<span class="hljs-string">&quot;&#x6811;&#x7A7A;&quot;</span>);
         }
     }
+
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">postOrder</span><span class="hljs-params">()</span> </span>{
         <span class="hljs-keyword">if</span> (root != <span class="hljs-keyword">null</span>) {
             <span class="hljs-keyword">this</span>.root.postOrder();
-        }<span class="hljs-keyword">else</span> {
+        } <span class="hljs-keyword">else</span> {
             System.out.println(<span class="hljs-string">&quot;&#x6811;&#x7A7A;&quot;</span>);
         }
     }
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> HeroNode <span class="hljs-title">preOrderSearch</span><span class="hljs-params">(<span class="hljs-keyword">int</span> no)</span> </span>{
-        <span class="hljs-keyword">if</span>(root != <span class="hljs-keyword">null</span>) {
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Node2 <span class="hljs-title">preOrderSearch</span><span class="hljs-params">(<span class="hljs-keyword">int</span> no)</span> </span>{
+        <span class="hljs-keyword">if</span> (root != <span class="hljs-keyword">null</span>) {
             <span class="hljs-keyword">return</span> root.preOrderSearch(no);
-        }<span class="hljs-keyword">else</span> {
+        } <span class="hljs-keyword">else</span> {
             System.out.println(<span class="hljs-string">&quot;&#x6811;&#x7A7A;&quot;</span>);
             <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
         }
     }
-    <span class="hljs-function"><span class="hljs-keyword">public</span> HeroNode <span class="hljs-title">midOrderSearch</span><span class="hljs-params">(<span class="hljs-keyword">int</span> no)</span> </span>{
-        <span class="hljs-keyword">if</span>(root != <span class="hljs-keyword">null</span>) {
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Node2 <span class="hljs-title">midOrderSearch</span><span class="hljs-params">(<span class="hljs-keyword">int</span> no)</span> </span>{
+        <span class="hljs-keyword">if</span> (root != <span class="hljs-keyword">null</span>) {
             <span class="hljs-keyword">return</span> root.midOrderSearch(no);
-        }<span class="hljs-keyword">else</span> {
+        } <span class="hljs-keyword">else</span> {
             System.out.println(<span class="hljs-string">&quot;&#x6811;&#x7A7A;&quot;</span>);
             <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
         }
     }
-    <span class="hljs-function"><span class="hljs-keyword">public</span> HeroNode <span class="hljs-title">postOrderSearch</span><span class="hljs-params">(<span class="hljs-keyword">int</span> no)</span> </span>{
-        <span class="hljs-keyword">if</span>(root != <span class="hljs-keyword">null</span>) {
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Node2 <span class="hljs-title">postOrderSearch</span><span class="hljs-params">(<span class="hljs-keyword">int</span> no)</span> </span>{
+        <span class="hljs-keyword">if</span> (root != <span class="hljs-keyword">null</span>) {
             <span class="hljs-keyword">return</span> root.postOrderSearch(no);
-        }<span class="hljs-keyword">else</span> {
+        } <span class="hljs-keyword">else</span> {
             System.out.println(<span class="hljs-string">&quot;&#x6811;&#x7A7A;&quot;</span>);
             <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
         }
     }
-
-
-
-
 }
-
-<span class="hljs-comment">//&#x521B;&#x5EFA;&#x8282;&#x70B9;</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HeroNode</span></span>{
+<span class="hljs-comment">//&#x52A0;&#x5165;&#x7EBF;&#x7D22;&#x5316;&#x7684;&#x8282;&#x70B9;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node2</span> </span>{
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> id;
     <span class="hljs-keyword">private</span> String name;
-    <span class="hljs-keyword">private</span> HeroNode left;
-    <span class="hljs-keyword">private</span> HeroNode right;
+    <span class="hljs-keyword">private</span> Node2 left;
+    <span class="hljs-keyword">private</span> Node2 right;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> leftType;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> rightType;
+    <span class="hljs-comment">//type == 0&#x5DE6;&#x5B50;&#x6811;  1&#x524D;&#x9A71;</span>
+    <span class="hljs-comment">//type == 0&#x53F3;&#x5B50;&#x6811;  1&#x540E;&#x7EE7;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">delNode</span><span class="hljs-params">(<span class="hljs-keyword">int</span> no)</span> </span>{
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.left != <span class="hljs-keyword">null</span> &amp;&amp;<span class="hljs-keyword">this</span>.left.id == no) {
+            <span class="hljs-keyword">this</span>.left = <span class="hljs-keyword">null</span>;
+            <span class="hljs-keyword">return</span>;
+        }
+
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.right != <span class="hljs-keyword">null</span> &amp;&amp;<span class="hljs-keyword">this</span>.right.id == no) {
+            <span class="hljs-keyword">this</span>.right = <span class="hljs-keyword">null</span>;
+        }
+
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.left != <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">this</span>.left.delNode(no);
+        }
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.right != <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">this</span>.right.delNode(no);
+        }
+    }
+
+
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getLeftType</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> leftType;
+    }
+
+
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setLeftType</span><span class="hljs-params">(<span class="hljs-keyword">int</span> leftType)</span> </span>{
+        <span class="hljs-keyword">this</span>.leftType = leftType;
+    }
+
+
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getRightType</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> rightType;
+    }
+
+
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setRightType</span><span class="hljs-params">(<span class="hljs-keyword">int</span> rightType)</span> </span>{
+        <span class="hljs-keyword">this</span>.rightType = rightType;
+    }
+
+
+
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getId</span><span class="hljs-params">()</span> </span>{
         <span class="hljs-keyword">return</span> id;
     }
@@ -566,26 +693,26 @@
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setName</span><span class="hljs-params">(String name)</span> </span>{
         <span class="hljs-keyword">this</span>.name = name;
     }
-    <span class="hljs-function"><span class="hljs-keyword">public</span> HeroNode <span class="hljs-title">getLeft</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Node2 <span class="hljs-title">getLeft</span><span class="hljs-params">()</span> </span>{
         <span class="hljs-keyword">return</span> left;
     }
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setLeft</span><span class="hljs-params">(HeroNode left)</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setLeft</span><span class="hljs-params">(Node2 left)</span> </span>{
         <span class="hljs-keyword">this</span>.left = left;
     }
-    <span class="hljs-function"><span class="hljs-keyword">public</span> HeroNode <span class="hljs-title">getRight</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Node2 <span class="hljs-title">getRight</span><span class="hljs-params">()</span> </span>{
         <span class="hljs-keyword">return</span> right;
     }
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setRight</span><span class="hljs-params">(HeroNode right)</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setRight</span><span class="hljs-params">(Node2 right)</span> </span>{
         <span class="hljs-keyword">this</span>.right = right;
     }
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">HeroNode</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id, String name)</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Node2</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id, String name)</span> </span>{
         <span class="hljs-keyword">super</span>();
         <span class="hljs-keyword">this</span>.id = id;
         <span class="hljs-keyword">this</span>.name = name;
     }
     <span class="hljs-meta">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;HeroNode [id=&quot;</span> + id + <span class="hljs-string">&quot;, name=&quot;</span> + name + <span class="hljs-string">&quot;]&quot;</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Node2 [id=&quot;</span> + id + <span class="hljs-string">&quot;, name=&quot;</span> + name + <span class="hljs-string">&quot;]&quot;</span>;
     }
 
     <span class="hljs-comment">//&#x524D;&#x5E8F;&#x904D;&#x5386;</span>
@@ -624,11 +751,11 @@
 
     }
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> HeroNode <span class="hljs-title">preOrderSearch</span><span class="hljs-params">(<span class="hljs-keyword">int</span> no)</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Node2 <span class="hljs-title">preOrderSearch</span><span class="hljs-params">(<span class="hljs-keyword">int</span> no)</span> </span>{
         <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.id == no) {
             <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
         }
-        HeroNode resNode = <span class="hljs-keyword">null</span>;
+        Node2 resNode = <span class="hljs-keyword">null</span>;
         <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.left != <span class="hljs-keyword">null</span>) {
             resNode = <span class="hljs-keyword">this</span>.left.preOrderSearch(no);
         }
@@ -641,8 +768,8 @@
         <span class="hljs-keyword">return</span> resNode;
     }
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> HeroNode <span class="hljs-title">midOrderSearch</span><span class="hljs-params">(<span class="hljs-keyword">int</span> no)</span> </span>{
-        HeroNode resNode = <span class="hljs-keyword">null</span>;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Node2 <span class="hljs-title">midOrderSearch</span><span class="hljs-params">(<span class="hljs-keyword">int</span> no)</span> </span>{
+        Node2 resNode = <span class="hljs-keyword">null</span>;
         <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.left != <span class="hljs-keyword">null</span>) {
             resNode = <span class="hljs-keyword">this</span>.left.midOrderSearch(no);
         }
@@ -658,8 +785,8 @@
         }
         <span class="hljs-keyword">return</span> resNode;
     }
-    <span class="hljs-function"><span class="hljs-keyword">public</span> HeroNode <span class="hljs-title">postOrderSearch</span><span class="hljs-params">(<span class="hljs-keyword">int</span> no)</span> </span>{
-        HeroNode resNode = <span class="hljs-keyword">null</span>;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Node2 <span class="hljs-title">postOrderSearch</span><span class="hljs-params">(<span class="hljs-keyword">int</span> no)</span> </span>{
+        Node2 resNode = <span class="hljs-keyword">null</span>;
         <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.left != <span class="hljs-keyword">null</span>) {
             resNode = <span class="hljs-keyword">this</span>.left.postOrderSearch(no);
         }
@@ -678,7 +805,6 @@
         }
         <span class="hljs-keyword">return</span> resNode;
     }
-
 
 }
 </code></pre>
@@ -709,12 +835,12 @@
 
             
                 
-                <a href="tree.md" class="navigation navigation-prev " aria-label="Previous page: 树">
+                <a href="tree2.html" class="navigation navigation-prev " aria-label="Previous page: 顺序二叉树">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="tree2.html" class="navigation navigation-next " aria-label="Next page: 顺序二叉树">
+                <a href="recurMain.html" class="navigation navigation-next " aria-label="Next page: 递归">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -725,7 +851,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"二叉树","level":"1.4.1","depth":2,"next":{"title":"顺序二叉树","level":"1.4.2","depth":2,"path":"tree2.md","ref":"tree2.md","articles":[]},"previous":{"title":"树","level":"1.4","depth":1,"path":"tree.md","ref":"tree.md","articles":[{"title":"二叉树","level":"1.4.1","depth":2,"path":"tree1.md","ref":"tree1.md","articles":[]},{"title":"顺序二叉树","level":"1.4.2","depth":2,"path":"tree2.md","ref":"tree2.md","articles":[]},{"title":"线索化二叉树","level":"1.4.3","depth":2,"path":"tree3.md","ref":"tree3.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["github-buttons","chapter-fold","advanced-emoji","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"Perseus1993","type":"follow","width":"230","count":false}]},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"tree1.md","mtime":"2020-01-05T13:40:06.467Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-24T01:45:23.212Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"线索化二叉树","level":"1.4.3","depth":2,"next":{"title":"递归","level":"1.5","depth":1,"path":"recurMain.md","ref":"recurMain.md","articles":[{"title":"迷宫问题","level":"1.5.1","depth":2,"path":"d.md","ref":"d.md","articles":[]},{"title":"面试题","level":"1.5.2","depth":2,"path":"xxx.md","ref":"xxx.md","articles":[]},{"title":"《算法第四版》递归","level":"1.5.3","depth":2,"path":"xxx.md","ref":"xxx.md","articles":[]}]},"previous":{"title":"顺序二叉树","level":"1.4.2","depth":2,"path":"tree2.md","ref":"tree2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["github-buttons","chapter-fold","advanced-emoji","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"Perseus1993","type":"follow","width":"230","count":false}]},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"tree3.md","mtime":"2020-01-18T04:18:26.989Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-24T01:45:23.212Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
