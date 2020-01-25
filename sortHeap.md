@@ -12,6 +12,8 @@ public class HeapSort {
 
 	public static void main(String[] args) {
 		int[] arr = {4, 6, 8, 5, 9};
+		heapSort(arr);
+		System.out.println(Arrays.toString(arr));
 
 	}
 	public void heapSort(int[] arr){
