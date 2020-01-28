@@ -9,100 +9,6 @@
 
 ####代码
 ```java
-public class HuffmanTree {
-
-	public static void main(String[] args) {
-		int[] arr = { 13, 7, 8, 3, 29, 6, 1 };
-		Node root = createHuffmanTree(arr);
-		preOrder(root);
-
-	}
-
-	public static void preOrder(Node root) {
-		if(root != null) {
-			root.preOrder();
-		}else {
-			System.out.println("空树");
-		}
-	}
-
-	public static Node createHuffmanTree(int[] arr) {
-		// 1.遍历数组
-		// 2.arr构成node
-		// 3.Node放入arrayList
-		List<Node> nodes = new ArrayList<Node>();
-		for (int value : arr) {
-			nodes.add(new Node(value));
-		}
-
-		while (nodes.size() > 1) {
-			Collections.sort(nodes);
-			System.out.println(nodes);
-
-			// 取出根节点最小的二叉树
-			Node leftNode = nodes.get(0);
-			Node rightNode = nodes.get(1);
-			Node parent = new Node(leftNode.value + rightNode.value);
-			parent.left = leftNode;
-			parent.right = rightNode;
-			// 删除掉处理过的二叉树
-			nodes.remove(leftNode);
-			nodes.remove(rightNode);
-
-			nodes.add(parent);
-
-		}
-		return nodes.get(0);
-	}
-
-}
-
-//为了让node支持排序，需要实现comparable接口
-class Node implements Comparable<Node> {
-	int value;// 节点权值
-	Node left;
-	Node right;
-
-	public Node(int value) {
-		this.value = value;
-	}
-
-	@Override
-	public String toString() {
-		return "Node [value=" + value + "]";
-	}
-
-	@Override
-	public int compareTo(Node o) {
-		// 从小到大排序
-		return this.value - o.value;
-	}
-	//前序遍历
-	public void preOrder() {
-		System.out.println(this);
-		if(this.left != null) {
-			this.left.preOrder();
-		}
-		if(this.right != null) {
-			this.right.preOrder();
-		}
-	}
-
-
-}
-
-```
-
-#### 哈夫曼编码
-功能：把字符串对应的哈夫曼树
-
-思路
-1. Node{data(存放数据)， weight(权值)， left, right}
-2. 对应的byte[]
-3. 将节点放到list中
-4. 通过list创建哈夫曼树
-
-```java
 public class HuffmanCode {
 
 	public static void main(String[] args) {
@@ -116,6 +22,42 @@ public class HuffmanCode {
 		Node huffmanTreeRoot = createHuffmanTree(nodes);
 		System.out.println("前序遍历");
 		huffmanTreeRoot.preOrder();
+
+		//哈夫曼编码
+		Map<Byte, String> huffmanCodes = getCodes(huffmanTreeRoot);
+
+		System.out.println("哈夫曼表" + huffmanCodes);
+	}
+
+	//生成哈夫曼树对应的编码
+	//思路
+	//哈夫曼编码放到map中
+	//在生成哈夫曼编码表需要拼接路径 用StringBuilder存储叶子结点的路径
+	static StringBuilder sb = new StringBuilder();
+	static Map<Byte, String> huffmanCodes = new HashMap<>();
+
+	//叶子节点放入到集合中 node传入节点 code 路径（左1 右0）， sb拼接路径
+	private static void getCodes(Node node, String code, StringBuilder sb) {
+		StringBuilder sb2 = new StringBuilder(sb);
+		sb2.append(code);
+		if(node != null) {
+			if(node.data == null) {
+				//非叶子节点左右递归
+				getCodes(node.left, "0", sb2);
+				getCodes(node.right, "1", sb2);
+			}else {
+				huffmanCodes.put(node.data, sb2.toString());
+			}
+		}
+	}
+	//重载
+	private static Map<Byte, String> getCodes(Node root){
+		if(root != null) {
+			return null;
+		}
+		getCodes(root.left, "0", sb);
+		getCodes(root.right, "1", sb);
+		return huffmanCodes;
 	}
 
 	public static void preOrder(Node root) {
